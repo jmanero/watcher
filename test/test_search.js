@@ -1,5 +1,4 @@
 
-var Assert = require('assert');
 var Path = require('path');
 var Util = require('util');
 
