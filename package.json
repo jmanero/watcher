@@ -1,0 +1,15 @@
+{
+	"name" : "node-watcher",
+	"version" : "0.1.0",
+	"author" : "John Manero <john.manero@gmail.com>",
+	"description" : "Monitor a tree of files and folders for creations, changes, and deletions",
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/jmanero/watcher.git"
+	},
+	"keywords" : [ "fs", "watch", "files" ],
+	"license" : "MIT",
+	"engine" : {
+		"node" : ">=0.6.15"
+	}
+}
