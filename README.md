@@ -39,6 +39,6 @@ path and search with in if directory
 * start(): Start traversing
 
 ###Events
-Events emit the path of the located node relative to the search root
+Events emit the canonical path of the located node
 * file: Emitted when a file node is located
 * folder: Emitted when a folder node is located
