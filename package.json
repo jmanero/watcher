@@ -2,13 +2,22 @@
 	"name" : "fs-watcher",
 	"version" : "0.2.1",
 	"author" : "John Manero <john.manero@gmail.com>",
+	"homepage" : "https://github.com/jmanero/watcher",
 	"description" : "Monitor a tree of files and folders for creations, changes, and deletions",
+	"bugs" : {
+		"url" : "https://github.com/jmanero/watcher/issues"
+	},
 	"repository" : {
 		"type" : "git",
 		"url" : "https://github.com/jmanero/watcher.git"
 	},
 	"keywords" : [ "fs", "watch", "files" ],
-	"license" : "MIT",
+	"licenses": [
+	     {
+	       "type": "MIT",
+	       "url": "http://github.com/jmanero/watcher/blob/master/LICENSE"
+	     }
+     ],
 	"engine" : {
 		"node" : ">=0.6.15"
 	}
