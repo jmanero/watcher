@@ -4,11 +4,11 @@ watcher
 Based upon [Mikeal Rogers'](/mikeal) [watch](/mikeal/watch) library.
 
 Watch a file tree and emit appropriate events for various changes. Extends EventEmitter.
-Uses FS.watch to monitor files for change, and re-scans directories periodicly to detect
+Uses FS.watch to monitor files for change, and re-scans directories periodically to detect
 new creations and deletions.
 
 _Polling allows watcher to function on most operating systems where FS.watch
-or FS.watchFile are not fully supported or have inconsistant behavior. FS.watch is
+or FS.watchFile are not fully supported or have inconsistent behavior. FS.watch is
 still used to monitor file changes asynchronously._
 
 ##Class: Watch
@@ -25,7 +25,7 @@ options:
 
 ###Events
 Events emit a WatchEvent object
-* watching: Emitted whan a new file or folder is added to the watch list
+* watching: Emitted when a new file or folder is added to the watch list
 * create: Emitted when a new file is detected in the watched tree
 * change: Emitted when a file in the watch list is changed
 * delete: emitted when a file or folder is deleted from the watched tree
@@ -39,6 +39,7 @@ path and search with in if directory
 * start(): Start traversing
 
 ###Events
-Events emit the canonical path of the located node
+Events emit the path of the located node relative to the specified root. This allows
+trees to be mirrored in different roots.
 * file: Emitted when a file node is located
 * folder: Emitted when a folder node is located

@@ -22,15 +22,16 @@ var Search = module.exports = function(options) {
 Util.inherits(Search, EventEmitter);
 
 Search.prototype.start = function(root) {
-	root = root || this.root;
+	this.root = root || this.root;
 
-	search.call(this, root);
+	search.call(this, './');
 };
 
 function search(path) {
 	var self = this;
+	var target = Path.join(this.root, path);
 
-	FS.stat(path, function(err, stat) {
+	FS.stat(target, function(err, stat) {
 		if (err) {
 			self.emit('error', {
 				method : 'search.stat',
@@ -40,7 +41,7 @@ function search(path) {
 		} else if (stat.isDirectory()) {
 			self.emit('folder', path);
 
-			FS.readdir(path, function(err, files) {
+			FS.readdir(target, function(err, files) {
 				if (err) {
 					self.emit('error', {
 						method : 'search.readdir',
