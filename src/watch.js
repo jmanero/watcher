@@ -121,7 +121,7 @@ function watchDir(path) {
 			path : path,
 			dir : true
 		};
-		
+
 	}
 }
 
@@ -140,8 +140,17 @@ function watch(path) {
 			clearTimeout(this.wait);
 
 			this.wait = setTimeout(function() {
-				FS.stat(fsw.path, function(err, stat) {
-					if (!err) {
+				FS.stat(target, function(err, stat) {
+					if (err) {
+						if(err.code == 'ENOENT') {
+							fsw.close();
+						} else {
+							self.emit('error', {
+								method : "Watch.watch.onchange",
+								err : err
+							});
+						}
+					} else {
 						self.emit('change', {
 							path : fsw.path,
 							dir : false
@@ -153,7 +162,9 @@ function watch(path) {
 		});
 
 		fsw.on('error', function(err) {
-			FS.stat(this.path, function(err, stat) {
+			var target = Path.join(self.root, this.path);
+			
+			FS.stat(target, function(err, stat) {
 				if (err && (err.code == "ENOENT" || err.code == "EPERM")) {
 					fsw.close();
 
