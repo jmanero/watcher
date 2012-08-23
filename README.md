@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/jmanero/watcher.png)](http://travis-ci.org/jmanero/watcher)
 watcher
 =======
 
